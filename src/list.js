@@ -9,10 +9,9 @@ const withListHandlers = withHandlers({
   },
 }) 
 
-const withListProps = withProps(props => ({
-  exampleProp: 'example ' + 1,
+const withListProps = withProps(({ listItems }) => ({
+  exampleProp: 'number of elements ' + listItems.length,
 })); 
-
 
 const List = compose(
   withState('listItems', 'setItems', []),
