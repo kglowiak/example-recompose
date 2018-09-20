@@ -5,6 +5,11 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@types/enzyme": "3.1.14",
+    "@types/enzyme-adapter-react-16": "1.0.3",
+    "enzyme": "3.6.0",
+    "enzyme-adapter-react-16": "1.1.0",
+    "jest": "23.6.0",
     "randomstring": "1.1.5",
     "react": "16.3.2",
     "react-dom": "16.3.2",
