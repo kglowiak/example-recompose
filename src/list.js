@@ -6,7 +6,8 @@ import { ListLayout } from "./list-layout";
 const withListHandlers = withHandlers({
   addRandomElement: ({ setItems, listItems }) => () => {
     setItems([...listItems, randomString.generate()]);
-  }
+  },
+  toggleAuth: ({ setAuth, auth }) => () => setAuth(!auth)
 });
 
 const withListProps = withProps(({ listItems }) => ({
@@ -15,6 +16,7 @@ const withListProps = withProps(({ listItems }) => ({
 
 const List = compose(
   withState("listItems", "setItems", []),
+  withState("auth", "setAuth", false),
   withListHandlers,
   withListProps
 )(ListLayout);
