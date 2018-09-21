@@ -1,6 +1,13 @@
 import React from "react";
 import randomString from "randomstring";
-import { compose, withHandlers, withProps, withState } from "recompose";
+import {
+  compose,
+  withHandlers,
+  withProps,
+  withState,
+  lifecycle,
+  setDisplayName
+} from "recompose";
 import { ListLayout } from "./list-layout";
 
 const withListHandlers = withHandlers({
@@ -15,10 +22,17 @@ const withListProps = withProps(({ listItems }) => ({
 }));
 
 const List = compose(
+  setDisplayName("List"),
   withState("listItems", "setItems", []),
   withState("auth", "setAuth", false),
   withListHandlers,
-  withListProps
+  withListProps,
+  lifecycle({
+    componentDidMount() {
+      console.log("fetch or action here");
+      console.log("to access props use", this.props);
+    }
+  })
 )(ListLayout);
 
 export { List };
